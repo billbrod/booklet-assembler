@@ -15,11 +15,14 @@ then rearrange into the proper order, and print as a booklet using LibreOffice.
      in) in landscape rotation. If that assumption is false, will need to change
      the `-g` option passed to `gs`. If you have this issue, open an issue and
      we can try and come up with a more general solution.
-2. The single pages need to be reorganized so that they can be assembled in the
-   proper order: `n 1 2 n-1 n-2 3 4 n-3 n-4 5 6 n-5 n-6 ...`:
+2. Optional: The single pages need to be reorganized so that they can be
+   assembled in the proper order: `n 1 2 n-1 n-2 3 4 n-3 n-4 5 6 n-5 n-6 ...`:
    `rearrange_singles.py NAME_OF_SINGLES.pdf`. This will create a new file,
-   `booklet.pdf`, for printing
-3. These are then printed using LibreOffice, following [this
+   `booklet.pdf`, for printing with something *other* than LibreOffice.
+3. Option 1: The singles in regular order will print correctly with LibreOffice
+   using the "brochure", as discussed below (LibreOffice may change images /
+   symbols on the document, depending on how they're encoded, so you may want to
+   use the next option below). We follow [this
    article](https://help.ubuntu.com/stable/ubuntu-help/printing-booklet-duplex.html.en)
    (skiping the steps about printing in the specific order, steps 3 and 4).
    Pasting the steps below for posterity. First, open the pdf in LibreOffice,
@@ -32,7 +35,9 @@ then rearrange into the proper order, and print as a booklet using LibreOffice.
 >    In the Orientation drop-down list, make sure that Landscape is selected.
 >
 >    In the Duplex drop-down list, select Short Edge.
->
+
+   - For my printer and LibreOffice, this is `Duplex: On (Landscape)`
+
 >    Click OK to go back to the print dialog.
 >
 >    ~~Under Range and Copies, choose Pages.~~
@@ -57,6 +62,10 @@ then rearrange into the proper order, and print as a booklet using LibreOffice.
 >
 >    Click Print.
 
+4. Option 2: print the booklet pdf using some other pdf printing software,
+   making sure to use "Short Edge" for double-sided printing and printing two
+   pdf pages per printer page.
+
 # Requirements
 
 - ghostscript for `spreads_to_singles.sh`. This was already installed on my
@@ -69,4 +78,4 @@ then rearrange into the proper order, and print as a booklet using LibreOffice.
 - ImageMagick for `rearrange_singles.py` to create blank files. You may get an
   error about permissions if it's used, in which case see
   [here](https://askubuntu.com/questions/1081895/trouble-with-batch-conversion-of-png-to-pdf-using-convert)
-- LibreOffice for printing the booklet.
+- LibreOffice (optional) for printing the booklet.

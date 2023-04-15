@@ -23,6 +23,7 @@ if (n_pages % 4) != 0:
     subprocess.run(f'pdftk A={filename} B=blank.pdf cat A1-end {blank_str} output tmp.pdf',
                    shell=True)
     n_pages += n_blank_pages
+    os.remove('blank.pdf')
 
 pages = []
 curr_page = n_pages
