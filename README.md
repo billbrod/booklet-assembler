@@ -5,7 +5,11 @@ article](https://www.creativegamelife.com/printing-and-binding-rpg-zines). The
 article does a lot manually and uses Adobe, so I figured I could do better.
 
 Basically, the goal is to get the PDF into a bunch of single pages, which we
-then rearrange into the proper order, and print as a booklet using LibreOffice.
+then rearrange into the proper order, and print as a booklet. LibreOffice
+(option 1) can rearrange the pages for printing in "brochure" order for us, but
+may change the way the pdf looks. Alternatively, we can rearrange the order of
+the pages manually, and then print with some other program (I've had good luck
+with Firefox).
 
 1. If the PDF only comes as "spreads" (with two content pages side-by-side on a
    single pdf page), we need to split them in half: `spreads_to_singles.sh
@@ -15,10 +19,11 @@ then rearrange into the proper order, and print as a booklet using LibreOffice.
      in) in landscape rotation. If that assumption is false, will need to change
      the `-g` option passed to `gs`. If you have this issue, open an issue and
      we can try and come up with a more general solution.
-2. Optional: The single pages need to be reorganized so that they can be
-   assembled in the proper order: `n 1 2 n-1 n-2 3 4 n-3 n-4 5 6 n-5 n-6 ...`:
-   `rearrange_singles.py NAME_OF_SINGLES.pdf`. This will create a new file,
-   `booklet.pdf`, for printing with something *other* than LibreOffice.
+2. (Unnecessary if using LibreOffice to print) The single pages need to be
+   reorganized so that they can be assembled in the proper order: `n 1 2 n-1 n-2
+   3 4 n-3 n-4 5 6 n-5 n-6 ...`: `rearrange_singles.py NAME_OF_SINGLES.pdf`.
+   This will create a new file, `booklet.pdf`, for printing with something
+   *other* than LibreOffice.
 3. Option 1: The singles in regular order will print correctly with LibreOffice
    using the "brochure", as discussed below (LibreOffice may change images /
    symbols on the document, depending on how they're encoded, so you may want to
