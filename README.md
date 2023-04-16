@@ -1,8 +1,8 @@
 # booklet-assembler
 
-Tools to turn RPG PDFs into booklets for printing, inspired by [this
-article](https://www.creativegamelife.com/printing-and-binding-rpg-zines). The
-article does a lot manually and uses Adobe, so I figured I could do better.
+Tools to turn RPG PDFs into booklets for printing, i.e. imposition, inspired by
+[this article](https://www.creativegamelife.com/printing-and-binding-rpg-zines).
+The article does a lot manually and uses Adobe, so I figured I could do better.
 
 Basically, the goal is to get the PDF into a bunch of single pages, which we
 then rearrange into the proper order, and print as a booklet. LibreOffice
@@ -84,3 +84,8 @@ with Firefox).
   error about permissions if it's used, in which case see
   [here](https://askubuntu.com/questions/1081895/trouble-with-batch-conversion-of-png-to-pdf-using-convert)
 - LibreOffice (optional) for printing the booklet.
+
+# See also
+
+[Bookbinder JS](https://momijizukamori.github.io/bookbinder-js/) website that
+does this in a more general fashion.
