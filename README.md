@@ -12,18 +12,16 @@ the pages manually, and then print with some other program (I've had good luck
 with Firefox).
 
 1. If the PDF only comes as "spreads" (with two content pages side-by-side on a
-   single pdf page), we need to split them in half: `spreads_to_singles.sh
-   NAME_OF_FILE.pdf`. This will create a new file, `singles.pdf`, wherever you
-   ran the script from.
-   - Note this assumes that the page before splitting is letter size (8.5in x 11
-     in) in landscape rotation. If that assumption is false, will need to change
-     the `-g` option passed to `gs`. If you have this issue, open an issue and
-     we can try and come up with a more general solution.
+   single pdf page), we need to split them in half: `spreads_to_singles.py
+   NAME_OF_FILE.pdf`. This will create a new file with the same name as the old
+   one, with `-single` appended to the end of the name, wherever you ran the
+   script from.
 2. (Unnecessary if using LibreOffice to print) The single pages need to be
    reorganized so that they can be assembled in the proper order: `n 1 2 n-1 n-2
    3 4 n-3 n-4 5 6 n-5 n-6 ...`: `rearrange_singles.py NAME_OF_SINGLES.pdf`.
-   This will create a new file, `booklet.pdf`, for printing with something
-   *other* than LibreOffice.
+   This will create a new file with the same name as the old, with `-booklet`
+   appended to the end of the name, for printing with something *other* than
+   LibreOffice.
 3. Option 1: The singles in regular order will print correctly with LibreOffice
    using the "brochure", as discussed below (LibreOffice may change images /
    symbols on the document, depending on how they're encoded, so you may want to
