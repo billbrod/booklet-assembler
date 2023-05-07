@@ -12,7 +12,8 @@ dims = subprocess.check_output(f'pdftk {filename} dump_data | grep "Dimensions" 
 dims = [x.strip().split(' ') for x in dims.decode().strip().split('\n')]
 dims = [(float(x[0]), float(x[1])) for x in dims]
 if len(set(dims)) != 1:
-    raise Exception(f"Can't figure out dimensions of {filename}!")
+    # order dims by frequency, hopefully most frequent is the one we want
+    dims = sorted(dims, key=lambda x: dims.count(x), reverse=True )
 dims = dims[0]
 half_horiz = int(dims[0] // 2)
 full_height = int(dims[1])
