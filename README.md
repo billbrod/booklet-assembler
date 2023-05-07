@@ -69,6 +69,17 @@ with Firefox).
    making sure to use "Short Edge" for double-sided printing and printing two
    pdf pages per printer page.
 
+# Additional scripts
+
+- `make_blank.sh`: simple shell script to create a blank pdf page with given
+  dimensions (requires ImageMagick). Accepts one argument, the dimension of the
+  page in the format `AxB`, where `A` and `B` are numbers. You can find the
+  dimensions of your pdf by running `pdftk {filename} dump_data | grep
+  "PageMediaDimensions"` on it.
+    - You can combine this blank page with your file (for the purpose of e.g.,
+      making the spreads line up correctly) by using `pdftk cat` (see
+      `rearrange_singles.py` for an example use).
+
 # Requirements
 
 - ghostscript for `spreads_to_singles.sh`. This was already installed on my
