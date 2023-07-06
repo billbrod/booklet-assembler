@@ -15,8 +15,8 @@ shutil.copy(filename, 'tmp.pdf')
 if (n_pages % 4) != 0:
     page_size = subprocess.check_output(f'pdftk {filename} dump_data | grep "PageMediaDimensions" | cut -d":" -f2',
                                         shell=True)
-    # converting to int and back to str is just to check we got the right thing
-    page_size = [str(int(x)) for x in page_size.decode().strip().split(' ')]
+    # converting to float and back to str is just to check we got the right thing
+    page_size = [str(float(x)) for x in page_size.decode().strip().split(' ')]
     subprocess.run(f'convert xc:none -page {"x".join(page_size)} blank.pdf', shell=True)
     n_blank_pages = 4 - (n_pages % 4)
     blank_str = 'B1 ' * n_blank_pages
